@@ -23,12 +23,10 @@ class Option(ABC):
         pass
         
     def gamma(self):
-        D1 = self.d1()
-        return norm.pdf(D1) / (self.S * self.sigma * np.sqrt(self.T))
+        return round(norm.pdf(self.d1()) / (self.S * self.sigma * np.sqrt(self.T)),2)
 
     def vega(self):
-        D1 = self.d1()
-        return self.S * norm.pdf(D1) * np.sqrt(D1)
+        return round(self.S * norm.pdf(self.d1()) * np.sqrt(self.d1()),2)
 
     def theta(self):    
         pass
